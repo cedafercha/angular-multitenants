@@ -3,31 +3,31 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "multitenant": {
+    "col": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
           "strict": true
         }
       },
-      "root": "",
-      "sourceRoot": "src",
+      "root": "src/tenants/col",
+      "sourceRoot": "src/tenants/col",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/multitenant",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
+            "outputPath": "dist/col",
+            "index": "src/tenants/col/index.html",
+            "main": "src/tenants/col/main.ts",
+            "polyfills": "src/tenants/col/polyfills.ts",
+            "tsConfig": "src/tenants/col/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/tenants/col/favicon.ico",
+              "src/tenants/col/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/tenants/col/styles.css"
             ],
             "scripts": []
           },
@@ -47,8 +47,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "src/tenants/col/environments/environment.ts",
+                  "with": "src/tenants/col/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "multitenant:build:production"
+              "browserTarget": "col:build:production"
             },
             "development": {
-              "browserTarget": "multitenant:build:development"
+              "browserTarget": "col:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,22 +79,218 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "multitenant:build"
+            "browserTarget": "col:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
+            "main": "src/tenants/col/test.ts",
+            "polyfills": "src/tenants/col/polyfills.ts",
+            "tsConfig": "src/tenants/col/tsconfig.spec.json",
+            "karmaConfig": "src/tenants/col/karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/tenants/col/favicon.ico",
+              "src/tenants/col/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/tenants/col/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "chl": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "src/tenants/chl",
+      "sourceRoot": "src/tenants/chl",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/chl",
+            "index": "src/tenants/chl/index.html",
+            "main": "src/tenants/chl/main.ts",
+            "polyfills": "src/tenants/chl/polyfills.ts",
+            "tsConfig": "src/tenants/chl/tsconfig.app.json",
+            "assets": [
+              "src/tenants/chl/favicon.ico",
+              "src/tenants/chl/assets"
+            ],
+            "styles": [
+              "src/tenants/chl/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/tenants/chl/environments/environment.ts",
+                  "with": "src/tenants/chl/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "chl:build:production"
+            },
+            "development": {
+              "browserTarget": "chl:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "chl:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/tenants/chl/test.ts",
+            "polyfills": "src/tenants/chl/polyfills.ts",
+            "tsConfig": "src/tenants/chl/tsconfig.spec.json",
+            "karmaConfig": "src/tenants/chl/karma.conf.js",
+            "assets": [
+              "src/tenants/chl/favicon.ico",
+              "src/tenants/chl/assets"
+            ],
+            "styles": [
+              "src/tenants/chl/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "mex": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "src/tenants/mex",
+      "sourceRoot": "src/tenants/mex",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/mex",
+            "index": "src/tenants/mex/index.html",
+            "main": "src/tenants/mex/main.ts",
+            "polyfills": "src/tenants/mex/polyfills.ts",
+            "tsConfig": "src/tenants/mex/tsconfig.app.json",
+            "assets": [
+              "src/tenants/mex/favicon.ico",
+              "src/tenants/mex/assets"
+            ],
+            "styles": [
+              "src/tenants/mex/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/tenants/mex/environments/environment.ts",
+                  "with": "src/tenants/mex/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "mex:build:production"
+            },
+            "development": {
+              "browserTarget": "mex:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mex:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/tenants/mex/test.ts",
+            "polyfills": "src/tenants/mex/polyfills.ts",
+            "tsConfig": "src/tenants/mex/tsconfig.spec.json",
+            "karmaConfig": "src/tenants/mex/karma.conf.js",
+            "assets": [
+              "src/tenants/mex/favicon.ico",
+              "src/tenants/mex/assets"
+            ],
+            "styles": [
+              "src/tenants/mex/styles.css"
             ],
             "scripts": []
           }
@@ -102,5 +298,5 @@
       }
     }
   },
-  "defaultProject": "multitenant"
+  "defaultProject": "col"
 }

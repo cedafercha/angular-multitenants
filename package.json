@@ -6,7 +6,20 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start-col": "ng serve col --port 4200",
+    "build-col": "ng build col",
+    "watch-col": "ng build col --watch --configuration development",
+    "test-col": "ng test col",
+    "start-chl": "ng serve chl --port 4201",
+    "build-chl": "ng build chl",
+    "watch-chl": "ng build chl --watch --configuration development",
+    "test-chl": "ng test chl",
+    "start-mex": "ng serve mex --port 4202",
+    "build-mex": "ng build mex && node ./src/tenants/mex/build-script.js",
+    "watch-mex": "ng build mex --watch --configuration development",
+    "test-mex": "ng test mex",
+    "build-all": "npm run build-col && npm run build-chl && npm run build-mex"
   },
   "private": true,
   "dependencies": {
@@ -20,7 +33,9 @@
     "@angular/router": "~12.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "concat": "^1.0.3",
+    "fs-extra": "^10.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.4",
